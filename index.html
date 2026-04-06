@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio website of Gaurav Pokhariya, Assurance Associate with strengths in audit, automation, leadership, and business communication."
+    />
+    <title>Gaurav Pokhariya | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@emotion/react@11/dist/emotion-react.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@emotion/styled@11/dist/emotion-styled.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@mui/material@5.15.20/umd/material-ui.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const {
+        AppBar,
+        Box,
+        Button,
+        Card,
+        CardContent,
+        Chip,
+        Container,
+        CssBaseline,
+        Drawer,
+        IconButton,
+        Stack,
+        ThemeProvider,
+        Toolbar,
+        Typography,
+        createTheme,
+      } = MaterialUI;
+
+      const navItems = [
+        { label: "About", href: "#about" },
+        { label: "Impact", href: "#impact" },
+        { label: "Experience", href: "#experience" },
+        { label: "Skills", href: "#skills" },
+        { label: "Contact", href: "#contact" },
+      ];
+
+      const stats = [
+        { value: "140+", label: "hours saved through audit workflow automation" },
+        { value: "180+", label: "audit workpapers delivered with quality and speed" },
+        { value: "1,100+", label: "attendees supported through event operations" },
+      ];
+
+      const highlights = [
+        {
+          icon: "insights",
+          title: "Audit Workflow Automation",
+          description:
+            "Built Excel-based tools that improved team efficiency by 30%, reduced repetitive effort, and saved more than 140 hours across 11 months at EY.",
+          tags: ["Excel Automation", "Audit", "Efficiency"],
+        },
+        {
+          icon: "groups",
+          title: "Large-Scale Event Leadership",
+          description:
+            "Led planning, speaker coordination, and operational execution for high-visibility student events and startup-focused showcases.",
+          tags: ["Operations", "PR", "Coordination"],
+        },
+        {
+          icon: "edit_square",
+          title: "Creative Expression",
+          description:
+            "Balanced analytical work with published Hindi writing, showing a communication style that is thoughtful, expressive, and memorable.",
+          tags: ["Writing", "Poetry", "Communication"],
+        },
+      ];
+
+      const experience = [
+        {
+          period: "October 2024 - October 2025",
+          role: "Assurance Associate",
+          company: "Ernst & Young Global Delivery Services LLC",
+          points: [
+            "Executed end-to-end audit procedures across multiple engagements, including reconciliations, sample testing, and variance analysis for key financial accounts.",
+            "Automated audit workflows using Excel-based tools, improving team efficiency by 30% and saving 140+ hours over 11 months.",
+            "Prepared 180+ audit workpapers and 35+ automation reports while maintaining EY standards and improving reporting turnaround time.",
+            "Collaborated with cross-functional teams to streamline documentation and resolve audit queries under tight deadlines.",
+          ],
+        },
+        {
+          period: "July 2022 - July 2023",
+          role: "PR & Management Head",
+          company: "Vyapaar E-Cell, Delhi College of Arts and Commerce",
+          points: [
+            "Led planning and execution of Vyapaar Bazaar at E-Summit 2023, enabling student-led startups to showcase and sell products.",
+            "Co-organized Business Conclave 2023, handling speaker coordination and operations for guests from Shark Tank India and the creator ecosystem.",
+          ],
+        },
+        {
+          period: "October 2022 - August 2023",
+          role: "Senior Member",
+          company: "Linguista - The Foreign Language Society, Delhi College of Arts and Commerce",
+          points: [
+            "Supported society formation and recruitment strategy as part of the core team.",
+            "Helped organize La Fiesta'23, managing competitions, logistics, and operations for 1,100 to 1,200 attendees.",
+          ],
+        },
+      ];
+
+      const education = [
+        {
+          title: "B. Com (Hons) Commerce",
+          meta: "Delhi College of Arts and Commerce, University of Delhi",
+          extra: "2021 - 2024 | CGPA: 7.054",
+        },
+        {
+          title: "Senior Secondary (Commerce)",
+          meta: "Keraleeya Samajam Regd. Dombivli's Model College, Dombivli",
+          extra: "2021 | 92.67%",
+        },
+        {
+          title: "Higher Secondary",
+          meta: "Shikhar Inter College, Didihat",
+          extra: "2019 | 89.4%",
+        },
+      ];
+
+      const achievements = [
+        "Third position in Cinematic Insights organized by IES Management College and Research Centre, Mumbai.",
+        "First position in Brainmap.qui, an inter-collegiate quiz at TechWizard 3.0 by V.G. Vaze College.",
+        "BCG Strategy Consulting Job Simulation certificate from Forage.",
+        "Hindi poem 'Mausam ki tarah badal jaaogi kya' published in Swaram'23.",
+      ];
+
+      const skills = {
+        core: [
+          "Advanced MS Excel",
+          "Pivot Tables",
+          "Lookups",
+          "Process Automation",
+          "Audit",
+          "Financial Analysis",
+          "Business Communication",
+          "Critical Thinking",
+          "Data Interpretation",
+          "Logical Reasoning",
+        ],
+        interests: [
+          {
+            icon: "menu_book",
+            title: "Reading",
+            copy: "Fiction and non-fiction that sharpen perspective, pattern recognition, and communication.",
+          },
+          {
+            icon: "draw",
+            title: "Writing",
+            copy: "Mostly Hindi poetry and shayari, bringing a reflective and expressive side to the profile.",
+          },
+          {
+            icon: "sports_tennis",
+            title: "Badminton",
+            copy: "A consistent competitive outlet that keeps energy high and discipline steady.",
+          },
+        ],
+      };
+
+      const theme = createTheme({
+        palette: {
+          mode: "dark",
+          primary: { main: "#61d6ff" },
+          secondary: { main: "#ffc76b" },
+          background: {
+            default: "#08111f",
+            paper: "rgba(14, 28, 46, 0.86)",
+          },
+          text: {
+            primary: "#f7f9fc",
+            secondary: "#9db0c9",
+          },
+        },
+        typography: {
+          fontFamily: '"Manrope", sans-serif',
+          h1: { fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700 },
+          h2: { fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700 },
+          h3: { fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700 },
+          button: { textTransform: "none", fontWeight: 700 },
+        },
+        shape: { borderRadius: 18 },
+      });
+
+      function App() {
+        const [drawerOpen, setDrawerOpen] = React.useState(false);
+        const [activeSection, setActiveSection] = React.useState("about");
+
+        React.useEffect(() => {
+          const revealTargets = document.querySelectorAll("[data-reveal]");
+          const revealObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                }
+              });
+            },
+            { threshold: 0.16 }
+          );
+
+          revealTargets.forEach((element) => revealObserver.observe(element));
+
+          const sections = document.querySelectorAll("section[id]");
+          const navObserver = new IntersectionObserver(
+            (entries) => {
+              const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+              if (visible[0]) {
+                setActiveSection(visible[0].target.id);
+              }
+            },
+            { threshold: [0.25, 0.5, 0.75] }
+          );
+
+          sections.forEach((section) => navObserver.observe(section));
+
+          return () => {
+            revealObserver.disconnect();
+            navObserver.disconnect();
+          };
+        }, []);
+
+        return (
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <div className="page-shell">
+              <Header
+                activeSection={activeSection}
+                drawerOpen={drawerOpen}
+                onToggleDrawer={() => setDrawerOpen((value) => !value)}
+                onCloseDrawer={() => setDrawerOpen(false)}
+              />
+              <main>
+                <Hero />
+                <About />
+                <Impact />
+                <Experience />
+                <ProfileDetails />
+                <Contact />
+              </main>
+              <footer className="footer shell-container">
+                Crafted with HTML, CSS, JavaScript, and Material UI to present Gaurav's work with
+                clarity, warmth, and momentum.
+              </footer>
+            </div>
+          </ThemeProvider>
+        );
+      }
+
+      function Header({ activeSection, drawerOpen, onToggleDrawer, onCloseDrawer }) {
+        return (
+          <>
+            <AppBar
+              position="sticky"
+              elevation={0}
+              sx={{
+                background: "rgba(8, 17, 31, 0.75)",
+                backdropFilter: "blur(18px)",
+                borderBottom: "1px solid rgba(159, 195, 255, 0.14)",
+              }}
+            >
+              <Container maxWidth="lg">
+                <Toolbar disableGutters sx={{ minHeight: 78 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontFamily: '"Space Grotesk", sans-serif',
+                      fontWeight: 700,
+                      letterSpacing: "-0.04em",
+                      flexGrow: 1,
+                    }}
+                  >
+                    Gaurav Pokhariya
+                  </Typography>
+                  <Stack direction="row" spacing={1.2} sx={{ display: { xs: "none", md: "flex" } }}>
+                    {navItems.map((item) => (
+                      <Button
+                        key={item.href}
+                        href={item.href}
+                        color="inherit"
+                        sx={{
+                          px: 1.5,
+                          color: activeSection === item.href.slice(1) ? "#61d6ff" : "#dce6f6",
+                        }}
+                      >
+                        {item.label}
+                      </Button>
+                    ))}
+                    <Button
+                      href="./assets/Gaurav-Pokhariya-Resume.pdf"
+                      target="_blank"
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Resume
+                    </Button>
+                  </Stack>
+                  <IconButton
+                    onClick={onToggleDrawer}
+                    sx={{ display: { xs: "inline-flex", md: "none" }, color: "#f7f9fc" }}
+                  >
+                    <span className="symbol">menu</span>
+                  </IconButton>
+                </Toolbar>
+              </Container>
+            </AppBar>
+            <Drawer anchor="right" open={drawerOpen} onClose={onCloseDrawer}>
+              <Box sx={{ width: 280, p: 2.5, backgroundColor: "#08111f", height: "100%" }}>
+                <Stack spacing={1.4}>
+                  {navItems.map((item) => (
+                    <Button
+                      key={item.href}
+                      href={item.href}
+                      onClick={onCloseDrawer}
+                      sx={{ justifyContent: "flex-start" }}
+                    >
+                      {item.label}
+                    </Button>
+                  ))}
+                  <Button
+                    href="./assets/Gaurav-Pokhariya-Resume.pdf"
+                    target="_blank"
+                    variant="contained"
+                    onClick={onCloseDrawer}
+                  >
+                    Open Resume
+                  </Button>
+                </Stack>
+              </Box>
+            </Drawer>
+          </>
+        );
+      }
+
+      function Hero() {
+        return (
+          <section className="hero">
+            <div className="shell-container hero-grid">
+              <div className="glass-card hero-card" data-reveal>
+                <div className="hero-kicker">
+                  <Chip label="Assurance Associate" color="primary" variant="outlined" />
+                  <Chip label="Automation-Driven" color="secondary" variant="outlined" />
+                  <Chip label="Commerce Graduate" color="primary" variant="outlined" />
+                </div>
+                <h1 className="hero-title">
+                  Building trust through
+                  <br />
+                  <span className="hero-gradient">analysis, automation, and clarity.</span>
+                </h1>
+                <p className="hero-subtitle">
+                  I am Gaurav Pokhariya, a commerce graduate and former EY Assurance Associate who
+                  enjoys improving systems, solving structured business problems, and bringing calm,
+                  detail-oriented execution to high-pressure work.
+                </p>
+                <div className="hero-actions">
+                  <Button href="#impact" size="large" variant="contained" color="primary">
+                    Explore My Work
+                  </Button>
+                  <Button href="#contact" size="large" variant="outlined" color="secondary">
+                    Contact Me
+                  </Button>
+                </div>
+                <div className="stats-grid">
+                  {stats.map((stat) => (
+                    <div className="stat-card" key={stat.label}>
+                      <span className="stat-value">{stat.value}</span>
+                      <span className="stat-label">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass-card spotlight-card" data-reveal>
+                <div>
+                  <div className="profile-badge">
+                    <span className="symbol">bolt</span>
+                    Portfolio Snapshot
+                  </div>
+                  <h2 className="spotlight-title">Analytical, people-oriented, and quietly ambitious.</h2>
+                  <p className="spotlight-copy">
+                    My work sits at the intersection of audit quality, process improvement, business
+                    communication, and disciplined execution. I care about doing precise work,
+                    making teams faster, and presenting ideas in a way that people can trust.
+                  </p>
+                </div>
+                <div className="metric-panel">
+                  <div className="metric-row">
+                    <span className="metric-title">Current focus</span>
+                    <span className="metric-note">Audit, analysis, operations, consulting-ready work</span>
+                  </div>
+                  <div className="metric-row">
+                    <span className="metric-title">Strength zones</span>
+                    <span className="metric-note">Excel, automation, business communication</span>
+                  </div>
+                  <div className="metric-row">
+                    <span className="metric-title">Creative edge</span>
+                    <span className="metric-note">Published Hindi poetry and reflective writing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function About() {
+        return (
+          <section id="about" className="section">
+            <div className="shell-container">
+              <div className="section-head" data-reveal>
+                <span className="eyebrow">About</span>
+                <h2 className="section-title">A portfolio built around impact, not filler.</h2>
+                <p className="section-copy">
+                  This website focuses on what actually makes your profile memorable: measurable audit
+                  impact, leadership in execution-heavy environments, strong academic consistency, and a
+                  thoughtful human side through writing and reading.
+                </p>
+              </div>
+              <div className="split-grid">
+                <div className="glass-card info-panel" data-reveal>
+                  <h3 className="info-title">Professional Story</h3>
+                  <p className="info-copy">
+                    At EY, you worked across reconciliations, sample testing, variance analysis, and
+                    audit documentation while also creating automation that reduced repetitive effort.
+                    That combination of rigor and efficiency is a strong professional signature.
+                  </p>
+                </div>
+                <div className="glass-card info-panel" data-reveal>
+                  <h3 className="info-title">Personal Dimension</h3>
+                  <p className="info-copy">
+                    Beyond structured business work, your profile carries a creative dimension through
+                    Hindi poetry and a reflective reading habit. It adds originality and warmth to an
+                    otherwise analytical portfolio.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Impact() {
+        return (
+          <section id="impact" className="section">
+            <div className="shell-container">
+              <div className="section-head" data-reveal>
+                <span className="eyebrow">Impact</span>
+                <h2 className="section-title">Featured strengths that define the profile.</h2>
+                <p className="section-copy">
+                  Because your resume is stronger on outcomes and ownership than conventional portfolio
+                  projects, this section turns your best stories into standout visual highlights.
+                </p>
+              </div>
+              <div className="feature-grid">
+                {highlights.map((item) => (
+                  <div className="glass-card feature-card" key={item.title} data-reveal>
+                    <div className="feature-icon">
+                      <span className="symbol">{item.icon}</span>
+                    </div>
+                    <h3 className="feature-title">{item.title}</h3>
+                    <p className="feature-copy">{item.description}</p>
+                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 2 }}>
+                      {item.tags.map((tag) => (
+                        <Chip key={tag} label={tag} size="small" variant="outlined" color="primary" />
+                      ))}
+                    </Stack>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Experience() {
+        return (
+          <section id="experience" className="section">
+            <div className="shell-container">
+              <div className="section-head" data-reveal>
+                <span className="eyebrow">Experience</span>
+                <h2 className="section-title">Built on detail, pace, and dependable execution.</h2>
+                <p className="section-copy">
+                  Across professional work and college leadership roles, your profile shows a clear
+                  pattern: stepping into dynamic environments, taking ownership, and making execution
+                  smoother for everyone involved.
+                </p>
+              </div>
+              <div className="timeline">
+                {experience.map((item) => (
+                  <div className="glass-card timeline-item" key={`${item.role}-${item.company}`} data-reveal>
+                    <div className="timeline-dot" />
+                    <div className="timeline-meta">{item.period}</div>
+                    <h3 className="timeline-role">{item.role}</h3>
+                    <div className="timeline-company">{item.company}</div>
+                    <Stack component="ul" spacing={1.25} sx={{ mt: 2.2, pl: 2.2 }}>
+                      {item.points.map((point) => (
+                        <Typography component="li" key={point} className="timeline-copy">
+                          {point}
+                        </Typography>
+                      ))}
+                    </Stack>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function ProfileDetails() {
+        return (
+          <section id="skills" className="section">
+            <div className="shell-container skill-layout">
+              <div>
+                <div className="section-head" data-reveal>
+                  <span className="eyebrow">Skills & Education</span>
+                  <h2 className="section-title">Grounded in commerce, sharpened by execution.</h2>
+                  <p className="section-copy">
+                    This section brings together your core business skills, educational foundation, and
+                    the recognitions that add credibility to the overall profile.
+                  </p>
+                </div>
+                <div className="glass-card skill-panel" data-reveal>
+                  <Typography variant="h5" sx={{ mb: 2, fontFamily: '"Space Grotesk", sans-serif' }}>
+                    Core Skills
+                  </Typography>
+                  <Stack direction="row" spacing={1.1} flexWrap="wrap" useFlexGap>
+                    {skills.core.map((skill) => (
+                      <Chip key={skill} label={skill} color="primary" variant="outlined" />
+                    ))}
+                  </Stack>
+                </div>
+                <div className="glass-card skill-panel" data-reveal style={{ marginTop: "24px" }}>
+                  <Typography variant="h5" sx={{ mb: 2, fontFamily: '"Space Grotesk", sans-serif' }}>
+                    Education
+                  </Typography>
+                  <Stack spacing={1.8}>
+                    {education.map((item) => (
+                      <Card
+                        key={item.title}
+                        sx={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          boxShadow: "none",
+                        }}
+                      >
+                        <CardContent>
+                          <Typography variant="h6" sx={{ mb: 0.8 }}>
+                            {item.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.meta}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{ mt: 1.2, color: "#dce6f6", fontWeight: 700 }}
+                          >
+                            {item.extra}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </Stack>
+                </div>
+              </div>
+
+              <div>
+                <div className="glass-card skill-panel" data-reveal>
+                  <Typography variant="h5" sx={{ mb: 2, fontFamily: '"Space Grotesk", sans-serif' }}>
+                    Achievements & Recognition
+                  </Typography>
+                  <Stack spacing={1.5} component="ul" sx={{ pl: 2.2, m: 0 }}>
+                    {achievements.map((item) => (
+                      <Typography component="li" key={item} color="text.secondary" sx={{ lineHeight: 1.9 }}>
+                        {item}
+                      </Typography>
+                    ))}
+                  </Stack>
+                </div>
+                <div className="glass-card skill-panel" data-reveal style={{ marginTop: "24px" }}>
+                  <Typography variant="h5" sx={{ mb: 2, fontFamily: '"Space Grotesk", sans-serif' }}>
+                    Interests
+                  </Typography>
+                  <div className="interest-list">
+                    {skills.interests.map((item) => (
+                      <div className="interest-item" key={item.title}>
+                        <span className="symbol">{item.icon}</span>
+                        <div>
+                          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                            {item.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+                            {item.copy}
+                          </Typography>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Contact() {
+        return (
+          <section id="contact" className="section">
+            <div className="shell-container">
+              <div className="glass-card contact-panel" data-reveal>
+                <div className="section-head" style={{ marginBottom: "0" }}>
+                  <span className="eyebrow">Contact</span>
+                  <h2 className="section-title">Let's start a thoughtful conversation.</h2>
+                  <p className="section-copy">
+                    Whether the opportunity is in audit, business operations, consulting, or analytical
+                    roles, this portfolio is designed to make your strengths immediately clear and easy
+                    to remember.
+                  </p>
+                </div>
+                <div className="contact-grid">
+                  <a className="contact-link" href="mailto:gauravpokhariya27@gmail.com">
+                    <Typography variant="subtitle1" sx={{ fontWeight: 800, mb: 0.8 }}>
+                      Email
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      gauravpokhariya27@gmail.com
+                    </Typography>
+                  </a>
+                  <a className="contact-link" href="tel:+919082964320">
+                    <Typography variant="subtitle1" sx={{ fontWeight: 800, mb: 0.8 }}>
+                      Phone
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      +91 9082964320
+                    </Typography>
+                  </a>
+                  <a
+                    className="contact-link"
+                    href="https://www.linkedin.com/in/gaurav-pokhariya-4b2908233/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Typography variant="subtitle1" sx={{ fontWeight: 800, mb: 0.8 }}>
+                      LinkedIn
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Connect and explore the full profile
+                    </Typography>
+                  </a>
+                </div>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 3 }}>
+                  <Button
+                    href="./assets/Gaurav-Pokhariya-Resume.pdf"
+                    target="_blank"
+                    variant="contained"
+                    size="large"
+                  >
+                    View Resume
+                  </Button>
+                  <Button href="#about" variant="outlined" color="secondary" size="large">
+                    Revisit Story
+                  </Button>
+                </Stack>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
